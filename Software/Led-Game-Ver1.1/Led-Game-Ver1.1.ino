@@ -1,4 +1,10 @@
-
+/*
+ * Led game for people with special needs
+ * This code is for 16Mhz Arduinos. 
+ * no external Lib needed
+ * (C) Alain MAUER
+ * www.alainsprojects.com
+ */
 
 
 
