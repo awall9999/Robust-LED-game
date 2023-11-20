@@ -1,5 +1,5 @@
 /*
- * Led game for people with special needs
+ * Led game for people with special needs Ver1.1
  * This code is for 16Mhz Arduinos. 
  * no external Lib needed
  * (C) Alain MAUER
@@ -7,16 +7,16 @@
  */
 
 
-
-
 #define HALT            asm("nop\n"); //Do Nothing
-#define BITHIGH         asm ("sbi %0, %1 \n": : "I" (_SFR_IO_ADDR(PORTB)), "I" (PORTB4) ); // Port D12 up
-#define BITLOW          asm ("cbi %0, %1 \n": : "I" (_SFR_IO_ADDR(PORTB)), "I" (PORTB4) ); // Port D12 down
+#define BITHIGH         asm ("sbi %0, %1 \n": : "I" (_SFR_IO_ADDR(PORTB)), "I" (PORTB4) ); //Assembler code to Set Port D12 (B4) to 1. This is the Data in Pin of your LED
+#define BITLOW          asm ("cbi %0, %1 \n": : "I" (_SFR_IO_ADDR(PORTB)), "I" (PORTB4) ); //Assembler code to Set Port D12 (B4) to 0  This is the Data in Pin of your LED
 
 int LN = 33; // Numbers of LEDs used
-int LB=255; //Brightness LED
+int LB=255; //Brightness LED 0-255 Spoiler 0 makes no sens :)
+int SoundVol=15; //Sound Volume 0-30
 unsigned long GoToSleep = 1; //Game enter standby in X minutes
-int NumberOfGames = 3; // Mumber of Games you have programed. max 5
+int NumberOfGames = 3; // Number of Games you have programmed.
+
 const int FireOn = 2;
 const int Left = 3;
 const int Right = 4;
@@ -26,7 +26,6 @@ const int ByPassMenu = 10;
 const int Piezo = 5;
 
 unsigned long time_now = 0;
-
 unsigned long Sleeptimer = 0;
 
 byte Player[5] = {6,5,4,3,2}; //define the LEDs for the Player
@@ -79,10 +78,10 @@ void setup() {
   NumberOfGames=NumberOfGames-1; // correct the Number of Games, offset to zero
   if (digitalRead(ByPassMenu) == 1) {GameSelect=5;} else {GameSelect=0;} //when pin 10 is open or high, jump to Gameselect when pin 10 is Low first game
   LedTest();
+  VolumeVoice(SoundVol);
   
-  
-  Serial.println("Scott's LED Game");
-  Serial.println("Beta 1     ready");
+  Serial.println("LED Game");
+  Serial.println("ready");
   
   
 }

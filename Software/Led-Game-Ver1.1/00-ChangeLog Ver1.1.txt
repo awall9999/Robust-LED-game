@@ -1,0 +1,3 @@
+- Fixed the pin10 issue to switch between menu and autoplay
+- Added pin 5 to connect a Piezo for the buttons feedback sound
+- Possiblity to change the Sound Volume (int SoundVol = "0-30";)

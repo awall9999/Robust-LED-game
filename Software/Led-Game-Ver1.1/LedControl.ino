@@ -1,8 +1,9 @@
 void Resetall(){
+  // Set all the LEDs color to 0. 0=off
   noInterrupts();
   for (int i = 0; i <= (24*LN); i++) Zero();
   interrupts();
-  Treset();
+  Treset();//50us delay to end the transfer of data
 }
 
 void UpdateLEDs() {
@@ -28,7 +29,8 @@ void LEDcall(byte LC){
   if (LC == 9) {r=(LB/2);g=0;b=LB;}      //Violet
   
   noInterrupts();
-  
+  // send the 24 Bits of one Led. Green,Red and Blue
+  // There is probably an more elegant way to do it, but it works
   for (int i = 0; i <= 7; i++){
     if (bitRead(g,7- i)) One(); else Zero();
     
@@ -48,15 +50,15 @@ void LEDcall(byte LC){
 
 void One(){
 cli();
-BITHIGH;HALT;HALT;HALT;HALT;HALT;HALT;HALT;HALT;HALT;HALT;HALT;HALT;
-BITLOW;HALT;HALT;HALT;HALT;HALT;HALT;
+BITHIGH;HALT;HALT;HALT;HALT;HALT;HALT;HALT;HALT;HALT;HALT;HALT;HALT; // 0,75us (0.0625 * 12)  ---  0.0625us one cycle on 16MHZ
+BITLOW;HALT;HALT;HALT;HALT;HALT;HALT; // 0,375us (0.0625 * 6) --- 0.0625us one cycle on 16MHZ
 sei();
 }
 
 void Zero(){
 cli();
-BITHIGH;HALT;HALT;HALT;HALT;HALT;
-BITLOW;HALT;HALT;HALT;HALT;HALT;HALT;HALT;HALT;HALT;HALT;HALT;HALT;HALT;
+BITHIGH;HALT;HALT;HALT;HALT;HALT; // 0,3125us (0.0625 * 5) --- 0.0625us one cycle on 16MHZ
+BITLOW;HALT;HALT;HALT;HALT;HALT;HALT;HALT;HALT;HALT;HALT;HALT;HALT;HALT; //0,8125us (0.0625 * 13) --- 0.0625us one cycle on 16MHZ
 sei();
 }
 

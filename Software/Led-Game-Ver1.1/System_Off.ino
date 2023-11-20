@@ -8,6 +8,8 @@ void GoodNight(){
    do{
     
    }while (digitalRead(FireOn)!=1);
+   tone(Piezo,1500,40);
+   WaitMS(50);
    resetFunc();
    
   

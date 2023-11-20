@@ -13,14 +13,14 @@ void PlayVoice(int Select){
 
 
 void VolumeVoice(int Select){
-  
+  // set volume funktion
   DFDataFile[3] = (0x06); 
   DFDataFile[6] = (Select);
   SendData();  
 }
 
 void ResetVoice(){
-  
+  // reset DFmini funktion
   DFDataFile[3] = (0x0C);
   SendData();  
 }
