@@ -1,0 +1,20 @@
+001 Bling
+002 endchoice
+003 Applause short
+004 tatatatatata
+005 Fail
+006 dot
+007 succsess
+008 cartoon move
+009 coundownS
+010 countdownL
+011 end song
+012 sad end
+013 Klick
+014 Poweroff
+015 moveplayer klick
+016 Laser01
+017 ufo incomming
+018 explosion short
+
+
