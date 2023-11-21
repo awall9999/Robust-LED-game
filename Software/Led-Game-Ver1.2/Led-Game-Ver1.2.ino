@@ -103,6 +103,6 @@ if (GameSelect == 2) Game03(); // Shoot the dot
 if (GameSelect == 3) Game04(); // FREE
 if (GameSelect == 4) Game05(); // FREE
 if (GameSelect == 5) GameStart(); // Jump to Game select menu if D10 is open
-if (AutoSelect == 1) {GameSelect++;if (GameSelect > NumberOfGames)GameSelect=0;AutoSelect = 0;}
+if (AutoSelect == 1) {GameSelect++;if (GameSelect > NumberOfGames){GoodNight();}AutoSelect=0;}
 
 }
