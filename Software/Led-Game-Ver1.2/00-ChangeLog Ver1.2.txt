@@ -1,0 +1,7 @@
+Led Game Ver1.1
+- Fixed the pin10 issue to switch between menu and autoplay
+- Added pin 5 to connect a Piezo for the buttons feedback sound
+- Possiblity to change the Sound Volume (int SoundVol = "0-30";)
+
+Led Game Ver1.2
+- After Power on or Power fail, the games stays in StandBy (so that no one is disturbed in the middle of the night)

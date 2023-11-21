@@ -1,5 +1,5 @@
 /*
- * Led game for people with special needs Ver1.1
+ * Led game for people with special needs Ver1.2
  * This code is for 16Mhz Arduinos. 
  * no external Lib needed
  * (C) Alain MAUER
@@ -76,27 +76,31 @@ void setup() {
   pinMode(Piezo,OUTPUT);
   pinMode(ByPassMenu,INPUT_PULLUP);
   NumberOfGames=NumberOfGames-1; // correct the Number of Games, offset to zero
-  if (digitalRead(ByPassMenu) == 1) {GameSelect=5;} else {GameSelect=0;} //when pin 10 is open or high, jump to Gameselect when pin 10 is Low first game
-  LedTest();
-  VolumeVoice(SoundVol);
+  if (digitalRead(ByPassMenu) == 1) {GameSelect=5;} else {GameSelect=0;} //when pin 10 is open or high, jump to Gameselect when pin 10 is Low, play first game
+  do{
+    }while (digitalRead(FireOn)!=1); // Wait for fire Button to start Game
+    tone(Piezo,1500,80);  // Button aucustic feedback  
+    LedTest(); // Start RGB Led Test Animation
+    WaitMS(1000);
+    VolumeVoice(SoundVol); //Set SoundVolume based on Variable SoundVol
   
-  Serial.println("LED Game");
-  Serial.println("ready");
+    Serial.println("LED Game");
+    Serial.println("ready");
   
   
 }
 
 void loop() {
-LEDPos[Status]=2;
-UpdateLEDs();
+LEDPos[Status]=2; //Status Led set to Green
+UpdateLEDs(); //Update Led Stripe
 Sleeptimer=millis(); 
 
-if (GameSelect == 0) Game01();
-if (GameSelect == 1) Game02();
-if (GameSelect == 2) Game03();
-if (GameSelect == 3) Game04();
-if (GameSelect == 4) Game05();
-if (GameSelect == 5) GameStart();
+if (GameSelect == 0) Game01(); // Capture the dot
+if (GameSelect == 1) Game02(); // Guess the color
+if (GameSelect == 2) Game03(); // Shoot the dot
+if (GameSelect == 3) Game04(); // FREE
+if (GameSelect == 4) Game05(); // FREE
+if (GameSelect == 5) GameStart(); // Jump to Game select menu if D10 is open
 if (AutoSelect == 1) {GameSelect++;if (GameSelect > NumberOfGames)GameSelect=0;AutoSelect = 0;}
 
 }
