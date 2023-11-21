@@ -12,7 +12,7 @@
 #define BITLOW          asm ("cbi %0, %1 \n": : "I" (_SFR_IO_ADDR(PORTB)), "I" (PORTB4) ); //Assembler code to Set Port D12 (B4) to 0  This is the Data in Pin of your LED
 
 int LN = 33; // Numbers of LEDs used
-int LB=255; //Brightness LED 0-255 Spoiler 0 makes no sens :)
+int LB=150; //Brightness LED 0-255 Spoiler 0 makes no sens :)
 int SoundVol=20; //Sound Volume 0-30
 unsigned long GoToSleep = 1; //Game enter standby in X minutes
 int NumberOfGames = 3; // Number of Games you have programmed.
@@ -77,6 +77,8 @@ void setup() {
   pinMode(ByPassMenu,INPUT_PULLUP);
   NumberOfGames=NumberOfGames-1; // correct the Number of Games, offset to zero
   if (digitalRead(ByPassMenu) == 1) {GameSelect=5;} else {GameSelect=0;} //when pin 10 is open or high, jump to Gameselect when pin 10 is Low, play first game
+  ClearAll();
+  UpdateLEDs();
   do{
     }while (digitalRead(FireOn)!=1); // Wait for fire Button to start Game
     tone(Piezo,1500,80);  // Button aucustic feedback  

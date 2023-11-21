@@ -60,6 +60,6 @@ void Game01 () {
 } while (Life != 3);
 WaitMS(1000);
 PlayVoice(11);
-WaitMS(6000);
+WaitMS(7000);
 if (digitalRead(ByPassMenu) == 1) {GameSelect=5;} else {AutoSelect =1;} //when pin 10 is open or high, jump to Gameselect when pin 10 is Low play next game
 }
