@@ -7,6 +7,7 @@ int DotColor=0;
 int Life=0;
 int Toggle=0;
 ClearAll();
+LEDPos[Status]=2;
 UpdateLEDs();
 GameStartupAni();
  

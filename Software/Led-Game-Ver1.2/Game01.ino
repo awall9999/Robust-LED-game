@@ -4,7 +4,9 @@ int OldPlayerPos = 0;
 
 void Game01 () {
  ClearAll();
+ LEDPos[Status]=2;
  UpdateLEDs();
+ 
  GameStartupAni();
  
  ClearAll();
