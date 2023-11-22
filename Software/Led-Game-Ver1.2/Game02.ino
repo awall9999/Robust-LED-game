@@ -1,9 +1,10 @@
 // Guess the color
 // Move the coloured player icon to the dot with the same colour and press fire to select. If the colour is the same you win
 void Game02 () {
-  
+ ClearAll();
+ UpdateLEDs(); 
 
-GameStartupAni();
+ GameStartupAni();
  
  ClearAll();
  PlayerPos=0; // Player in position 0

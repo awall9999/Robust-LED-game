@@ -3,6 +3,8 @@
 int OldPlayerPos = 0;
 
 void Game01 () {
+ ClearAll();
+ UpdateLEDs();
  GameStartupAni();
  
  ClearAll();

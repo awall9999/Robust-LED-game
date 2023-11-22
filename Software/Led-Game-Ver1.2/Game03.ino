@@ -6,6 +6,8 @@ int DotColumns=0;
 int DotColor=0;
 int Life=0;
 int Toggle=0;
+ClearAll();
+UpdateLEDs();
 GameStartupAni();
  
  ClearAll();

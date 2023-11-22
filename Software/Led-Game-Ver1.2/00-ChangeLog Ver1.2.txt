@@ -4,5 +4,6 @@ Led Game Ver1.1
 - Possiblity to change the Sound Volume (int SoundVol = "0-30";)
 
 Led Game Ver1.2
+- Bugfix. Clear the Screen before the new start animation starts
 - After Power on or Power fail, the games stays in StandBy (so that no one is disturbed in the middle of the night)
 - After the last game, the cycle does not start again, but the system goes into standby.
